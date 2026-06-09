@@ -15,20 +15,14 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Libre Baskerville', serif; background: var(--cr); color: var(--tx); }
-
-    /* ── LANG BAR ── */
     .lang-bar { background: #ede6db; border-bottom: 1px solid var(--cb); display: flex; justify-content: flex-end; padding: 7px 48px; gap: 6px; }
     .lb { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; padding: 5px 16px; border-radius: 20px; border: 1.5px solid var(--cb); background: transparent; color: var(--mu); cursor: pointer; transition: all .15s; }
     .lb.on { background: var(--g); color: var(--cr); border-color: var(--g); }
-
-    /* ── NAV ── */
     nav { position: sticky; top: 0; z-index: 99; background: var(--wh); border-bottom: 1px solid var(--cb); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
     .logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; color: var(--g); text-decoration: none; letter-spacing: -.5px; }
     .logo small { font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: 13px; color: var(--mu); margin-left: 8px; }
     .ncta { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; padding: 9px 20px; background: var(--g); color: var(--cr); border-radius: 6px; text-decoration: none; transition: background .15s; }
     .ncta:hover { background: var(--gd); }
-
-    /* ── HERO ── */
     .hero { background: var(--g); padding: 72px 48px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
     .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gm); margin-bottom: 14px; }
     .htitle { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; color: var(--cr); line-height: 1.15; margin-bottom: 18px; }
@@ -37,8 +31,6 @@
     .pills { display: flex; flex-wrap: wrap; gap: 9px; }
     .pill { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; padding: 5px 13px; border-radius: 20px; background: rgba(246,241,234,.12); border: 1px solid rgba(246,241,234,.25); color: var(--cr); }
     .pill.hl { background: var(--cr); color: var(--g); border-color: var(--cr); }
-
-    /* ── FORM CARD ── */
     .fcard { background: var(--wh); border-radius: 16px; padding: 34px 30px; box-shadow: 0 6px 48px rgba(26,46,34,.18); }
     .ftitle { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--tx); margin-bottom: 3px; }
     .fsub { font-style: italic; font-size: 13px; color: var(--mu); margin-bottom: 22px; }
@@ -57,15 +49,11 @@
     .sbtn:disabled { background: var(--mu); cursor: not-allowed; }
     .fnote { font-style: italic; font-size: 11px; color: var(--mu); text-align: center; margin-top: 9px; }
     .err { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 7px; padding: 10px 13px; margin-top: 10px; display: none; }
-
-    /* ── SUCCESS ── */
     .succ { display: none; text-align: center; padding: 18px 0; }
     .sico { width: 58px; height: 58px; border-radius: 50%; background: var(--gl); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
     .sico svg { width: 26px; height: 26px; stroke: var(--g); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
     .stitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 600; color: var(--tx); margin-bottom: 7px; }
     .sdesc { font-style: italic; font-size: 14px; color: var(--mu); line-height: 1.7; }
-
-    /* ── BENEFITS ── */
     .sec { padding: 68px 48px; }
     .sec.wh { background: var(--wh); }
     .sec.cr { background: var(--cr); }
@@ -74,12 +62,9 @@
     .ssub { font-style: italic; font-size: 15px; color: var(--mu); text-align: center; margin-bottom: 44px; }
     .bgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; max-width: 920px; margin: 0 auto; }
     .bc { background: var(--cr); border-radius: 12px; border: 1px solid var(--cb); padding: 22px 20px; }
-    .sec.wh .bc { background: var(--cr); }
     .bico { width: 42px; height: 42px; border-radius: 9px; background: var(--gl); display: flex; align-items: center; justify-content: center; font-size: 19px; margin-bottom: 12px; }
     .btit { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--tx); margin-bottom: 5px; }
     .bdesc { font-size: 13px; color: var(--mu); line-height: 1.7; }
-
-    /* ── ROLE ── */
     .wgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; max-width: 920px; margin: 0 auto; align-items: start; }
     .wlist { list-style: none; }
     .wi { display: flex; gap: 13px; padding: 13px 0; border-bottom: 1px solid var(--cb); }
@@ -95,20 +80,11 @@
     .ts { display: flex; align-items: center; gap: 11px; }
     .tsn { width: 25px; height: 25px; border-radius: 50%; background: rgba(246,241,234,.13); border: 1px solid rgba(246,241,234,.28); font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--cr); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .tst { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500; color: rgba(246,241,234,.9); }
-
-    /* ── FOOTER ── */
     footer { background: var(--tx); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
     .flogo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; color: var(--cr); }
     .fslogan { font-style: italic; font-size: 13px; color: rgba(246,241,234,.45); }
     .fcon { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; color: var(--gm); }
-
-    /* ── HINDI FONT OVERRIDE ── */
-    .hi * { font-family: 'Tiro Devanagari Hindi', serif !important; }
-    .hi .eyebrow, .hi .fl, .hi .btit, .hi .wt strong, .hi .tst, .hi .tbadge,
-    .hi .logo, .hi .flogo, .hi .fcon, .hi .lb, .hi .ncta, .hi .sbtn, .hi .pill,
-    .hi .btit { font-family: 'Tiro Devanagari Hindi', serif !important; letter-spacing: 0 !important; text-transform: none !important; }
-
-    /* ── RESPONSIVE ── */
+    .hi * { font-family: 'Tiro Devanagari Hindi', serif !important; letter-spacing: 0 !important; text-transform: none !important; }
     @media(max-width:768px) {
       .lang-bar, nav, .hero, .sec, footer { padding-left: 20px; padding-right: 20px; }
       .hero { grid-template-columns: 1fr; padding-top: 44px; padding-bottom: 36px; gap: 28px; }
@@ -122,19 +98,16 @@
 </head>
 <body>
 
-<!-- LANG BAR -->
 <div class="lang-bar">
   <button class="lb on" id="lb-en" onclick="lang('en')">English</button>
   <button class="lb" id="lb-hi" onclick="lang('hi')">हिंदी</button>
 </div>
 
-<!-- NAV -->
 <nav>
   <a href="https://getelda.com" class="logo">elda.<small id="nav-sub">partner portal</small></a>
   <a href="#apply" class="ncta" id="nav-cta">Apply Now</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div>
     <div class="eyebrow" id="eyebrow">Now Hiring in Gurgaon</div>
@@ -147,13 +120,11 @@
       <span class="pill" id="p-train">7-Day Training Included</span>
     </div>
   </div>
-
   <div id="apply">
     <div class="fcard">
       <div class="ftitle" id="f-title">Apply to Join elda.</div>
       <div class="fsub" id="f-sub">Takes 2 minutes. We'll call you within 24 hours.</div>
-
-      <form id="the-form" onsubmit="submit(event)">
+      <form id="the-form" onsubmit="doSubmit(event)">
         <div class="frow">
           <div class="fg">
             <label class="fl" id="l-name">Full Name</label>
@@ -178,10 +149,10 @@
           <div class="fg">
             <label class="fl" id="l-exp">Senior Care Experience?</label>
             <div class="rg">
-              <div class="ro" id="opt-y" onclick="pick('y',this)" id="opt-yes">
+              <div class="ro" id="opt-y" onclick="pick('Yes',this)">
                 <span id="exp-yes">✓ Yes, I have</span>
               </div>
-              <div class="ro" id="opt-n" onclick="pick('n',this)">
+              <div class="ro" id="opt-n" onclick="pick('No',this)">
                 <span id="exp-no">No, but willing to learn</span>
               </div>
             </div>
@@ -197,7 +168,6 @@
         <button class="sbtn" id="sbtn" type="submit"><span id="btn-txt">Submit Application →</span></button>
         <p class="fnote" id="fnote">Your information is safe with us. No spam, ever.</p>
       </form>
-
       <div class="succ" id="succ">
         <div class="sico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div class="stitle" id="s-title">Application Received!</div>
@@ -207,7 +177,6 @@
   </div>
 </section>
 
-<!-- BENEFITS -->
 <section class="sec wh">
   <div class="seyebrow" id="b-eyebrow">Why elda.</div>
   <h2 class="stit" id="b-title">A job with dignity,<br/>purpose, and stability.</h2>
@@ -218,11 +187,10 @@
     <div class="bc"><div class="bico">📈</div><div class="btit" id="b3t">Monthly Incentives</div><div class="bdesc" id="b3d">Partners who go above and beyond earn meaningful bonuses every single month.</div></div>
     <div class="bc"><div class="bico">🎓</div><div class="btit" id="b4t">7-Day Paid Training</div><div class="bdesc" id="b4d">No experience? No problem. We train every partner before they start — fully paid, fully prepared.</div></div>
     <div class="bc"><div class="bico">❤️</div><div class="btit" id="b5t">Meaningful Work</div><div class="bdesc" id="b5d">You become the most important person in a senior's daily life — trusted, valued, and loved.</div></div>
-    <div class="bc"><div class="bico">🤝</div><div class="btit" id="b6t">Backed by elda.</div><div class="bdesc" id="b6d">A dedicated coordinator and full team support, always there when you need help on the ground.</div></div>
+    <div class="bc"><div class="bico">🤝</div><div class="btit" id="b6t">Backed by elda.</div><div class="bdesc" id="b6d">A dedicated coordinator and full team support, always there when you need help.</div></div>
   </div>
 </section>
 
-<!-- ROLE -->
 <section class="sec cr">
   <div style="text-align:center;margin-bottom:44px">
     <div class="seyebrow" id="r-eyebrow">The Role</div>
@@ -253,7 +221,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="flogo">elda.</div>
   <div class="fslogan" id="f-slogan">a concierge for modern aging</div>
@@ -261,34 +228,18 @@
 </footer>
 
 <script>
-// ─────────────────────────────────────────────────────────────────────────────
-// STEP 1: Create a Google Form with these 6 fields (Short answer for all):
-//   1. Name  2. Age  3. Phone  4. Location  5. Experience  6. Salary
-//
-// STEP 2: Click "Send" → click the link icon → copy the form URL
-//   It looks like: https://docs.google.com/forms/d/e/XXXXXXXX/viewform
-//
-// STEP 3: For each field, click the 3-dot menu → "Get pre-filled link"
-//   Fill dummy values, click "Get link", copy the URL — extract the entry.XXXXXXX
-//   numbers from it. Paste them below.
-//
-// WHY THIS WORKS: Google Forms accepts cross-origin POST from any browser,
-//   no CORS, no auth, no Apps Script needed.
-// ─────────────────────────────────────────────────────────────────────────────
-
-  var FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLScRWXdporXAKi9WQDP2INc-9HsvZFLjXL9ZjliB5H_7lju40Q/viewform?usp=header';
-  // e.g. 'https://docs.google.com/forms/d/e/1FAIpQLSxxxxxxxx/formResponse'
+  // ── YOUR GOOGLE FORM CONFIG (already filled in) ──
+  var FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLScRWXdporXAKi9WQDP2INc-9HsvZFLjXL9ZjliB5H_7lju40Q/formResponse';
 
   var FIELDS = {
-    name:       'entry.1239372723',   // replace with real entry IDs
+    name:       'entry.1239372723',
     age:        'entry.1300050841',
     phone:      'entry.388066263',
     location:   'entry.1335751389',
     experience: 'entry.1889047254',
     salary:     'entry.1941328919'
   };
-
-// ─────────────────────────────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────
 
   var exp = '';
   var curLang = 'en';
@@ -300,7 +251,7 @@
       'htitle':'Care for a senior.<br/><em>Change a life.</em>',
       'hdesc':'Join elda. as a Senior Care Partner — a meaningful role where you become extended family for the seniors in our care. We provide everything you need to thrive.',
       'p-month':'month','p-inc':'+ Performance Incentives','p-stay':'🏠 Free Stay in Gurgaon','p-train':'7-Day Training Included',
-      'f-title':'Apply to Join elda.','f-sub':'Takes 2 minutes. We\'ll call you within 24 hours.',
+      'f-title':'Apply to Join elda.','f-sub':"Takes 2 minutes. We'll call you within 24 hours.",
       'l-name':'Full Name','l-age':'Age','l-phone':'Phone Number','l-loc':'Current Location',
       'l-exp':'Senior Care Experience?','exp-yes':'✓ Yes, I have','exp-no':'No, but willing to learn',
       'l-sal':'Monthly Salary Expectation (₹)',
@@ -308,19 +259,19 @@
       's-title':'Application Received!','s-desc':'Thank you. Our team will call you within 24 hours.<br/>Welcome to the elda. family.',
       'b-eyebrow':'Why elda.','b-title':'A job with dignity,<br/>purpose, and stability.','b-sub':'We take care of our partners the same way we take care of seniors.',
       'b1t':'₹20,000+ Salary','b1d':'Competitive monthly salary starting at ₹20,000 with performance incentives for excellent work.',
-      'b2t':'Free Stay in Gurgaon','b2d':'Comfortable accommodation in Gurgaon provided — no rent, no worry. Focus on your work and savings.',
+      'b2t':'Free Stay in Gurgaon','b2d':'Comfortable accommodation in Gurgaon provided — no rent, no worry.',
       'b3t':'Monthly Incentives','b3d':'Partners who go above and beyond earn meaningful bonuses every single month.',
-      'b4t':'7-Day Paid Training','b4d':'No experience? No problem. We train every partner before they start — fully paid, fully prepared.',
-      'b5t':'Meaningful Work','b5d':'You become the most important person in a senior\'s daily life — trusted, valued, and loved.',
+      'b4t':'7-Day Paid Training','b4d':'No experience? No problem. We train every partner before they start — fully paid.',
+      'b5t':'Meaningful Work','b5d':"You become the most important person in a senior's daily life — trusted, valued, and loved.",
       'b6t':'Backed by elda.','b6d':'A dedicated coordinator and full team support, always there when you need help.',
-      'r-eyebrow':'The Role','r-title':'What you\'ll do every day','r-sub':'Caring, consistent, compassionate — that\'s the elda. partner.',
+      'r-eyebrow':'The Role','r-title':"What you'll do every day",'r-sub':"Caring, consistent, compassionate — that's the elda. partner.",
       'r1t':'Personal Hygiene Support','r1d':'Help seniors with bathing, grooming, and maintaining daily hygiene with warmth and dignity.',
       'r2t':'Companionship & Conversation','r2d':'Spend quality time — talk, listen, play games. Loneliness is the enemy.',
       'r3t':'Daily Walks & Light Exercise','r3d':'Accompany seniors on morning or evening walks, keeping them active and safe.',
       'r4t':'Massage & Physical Comfort','r4d':'Gentle massage to ease aches, improve circulation, and bring relief.',
       'r5t':'Daily Needs Assistance','r5d':'Help with meals, medicines, mobility, and general daily routines.',
       'tr-badge':'Training Program','tr-title':'7 Days to become a certified elda. Care Partner',
-      'tr-desc':'No prior experience required. We train every partner from scratch — hands-on, practical, fully paid. By Day 7 you\'re ready.',
+      'tr-desc':"No prior experience required. We train every partner from scratch — hands-on, practical, fully paid. By Day 7 you're ready.",
       'ts1':'Senior care fundamentals & safety','ts2':'Personal hygiene & grooming',
       'ts3':'Companionship & emotional support','ts4':'Emergency response basics',
       'ts5':'elda. systems & reporting','ts6':'Live supervised practice',
@@ -391,7 +342,7 @@
     e.style.display = 'block';
   }
 
-  function submit(e) {
+  function doSubmit(e) {
     e.preventDefault();
     document.getElementById('err-box').style.display = 'none';
 
@@ -401,23 +352,15 @@
     btn.disabled = true;
     document.getElementById('btn-txt').textContent = T[curLang]['submitting'];
 
-    var name     = document.getElementById('f-name').value.trim();
-    var age      = document.getElementById('f-age').value.trim();
-    var phone    = document.getElementById('f-phone').value.trim();
-    var location = document.getElementById('f-loc').value.trim();
-    var salary   = document.getElementById('f-sal').value.trim();
-
-    // Build form-encoded body — Google Forms requires this format
     var body = [
-      encodeURIComponent(FIELDS.name)       + '=' + encodeURIComponent(name),
-      encodeURIComponent(FIELDS.age)        + '=' + encodeURIComponent(age),
-      encodeURIComponent(FIELDS.phone)      + '=' + encodeURIComponent(phone),
-      encodeURIComponent(FIELDS.location)   + '=' + encodeURIComponent(location),
+      encodeURIComponent(FIELDS.name)       + '=' + encodeURIComponent(document.getElementById('f-name').value.trim()),
+      encodeURIComponent(FIELDS.age)        + '=' + encodeURIComponent(document.getElementById('f-age').value.trim()),
+      encodeURIComponent(FIELDS.phone)      + '=' + encodeURIComponent(document.getElementById('f-phone').value.trim()),
+      encodeURIComponent(FIELDS.location)   + '=' + encodeURIComponent(document.getElementById('f-loc').value.trim()),
       encodeURIComponent(FIELDS.experience) + '=' + encodeURIComponent(exp),
-      encodeURIComponent(FIELDS.salary)     + '=' + encodeURIComponent(salary)
+      encodeURIComponent(FIELDS.salary)     + '=' + encodeURIComponent(document.getElementById('f-sal').value.trim())
     ].join('&');
 
-    // no-cors: Google Forms blocks reading the response but ACCEPTS the POST fine
     fetch(FORM_ACTION, {
       method: 'POST',
       mode: 'no-cors',
@@ -425,7 +368,6 @@
       body: body
     })
     .then(function() {
-      // fetch resolved = POST was sent successfully
       document.getElementById('the-form').style.display = 'none';
       document.getElementById('succ').style.display = 'block';
     })
