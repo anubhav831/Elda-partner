@@ -184,7 +184,7 @@
     <div class="fcard">
       <div class="ftitle" id="f-title">Apply to Join elda.</div>
       <div class="fsub" id="f-sub">Takes 2 minutes. We'll call you within 24 hours.</div>
-      <form id="the-form" onsubmit="doSubmit(event)">
+      <form id="the-form">
         <div class="frow">
           <div class="fg">
             <label class="fl" id="l-name">Full Name</label>
@@ -316,152 +316,104 @@
   var exp = '';
   var curLang = 'en';
 
-  // All translatable strings keyed by element ID
-  // For Hindi, we set both textContent AND font via .hindi-text class on the element
   var STRINGS = {
     en: {
-      'nav-sub':        'partner portal',
-      'nav-cta':        'Apply Now',
-      'eyebrow':        'Now Hiring in Gurgaon',
-      'htitle':         'Care for a senior. <em>Change a life.</em>',
-      'hsubtitle':      'Trusted. Empathetic. On demand.',
-      'hdesc':          'Join elda. as a Senior Care Partner — a meaningful role where you become extended family for the seniors we serve. We give you everything you need to thrive.',
-      'p-sal':          '₹20,000+ / month',
-      'p-inc':          '+ Performance Bonus',
-      'p-stay':         '🏠 Free Stay in Gurgaon',
-      'p-train':        '7-Day Training',
-      'p-ref':          '🎁 ₹2,000 Referral Bonus',
+      'nav-sub':'partner portal','nav-cta':'Apply Now',
+      'eyebrow':'Now Hiring in Gurgaon',
+      'htitle':'Care for a senior. <em>Change a life.</em>',
+      'hsubtitle':'Trusted. Empathetic. On demand.',
+      'hdesc':'Join elda. as a Senior Care Partner — a meaningful role where you become extended family for the seniors we serve.',
+      'p-sal':'₹20,000+ / month','p-inc':'+ Performance Bonus','p-stay':'🏠 Free Stay in Gurgaon','p-train':'7-Day Training','p-ref':'🎁 ₹2,000 Referral Bonus',
       'ref-banner-text':'Earn ₹2,000 for every partner you refer!<span>Refer a friend who joins elda. and get ₹2,000 added to your next salary.</span>',
-      'f-title':        'Apply to Join elda.',
-      'f-sub':          "Takes 2 minutes. We'll call you within 24 hours.",
-      'l-name':         'Full Name',
-      'l-age':          'Age',
-      'l-phone':        'Phone Number',
-      'l-loc':          'Current Location',
-      'l-exp':          'Senior Care Experience?',
-      'exp-yes':        '✓ Yes, I have',
-      'exp-no':         'No, but willing',
-      'l-sal':          'Monthly Salary Expectation (₹)',
-      'btn-txt':        'Submit Application →',
-      'fnote':          'Your information is safe with us. No spam, ever.',
-      's-title':        'Application Received!',
-      's-desc':         'Thank you. Our team will call you within 24 hours.<br/>Welcome to the elda. family.',
-      'b-eyebrow':      'Why elda.',
-      'b-title':        'A job built around you.',
-      'b-sub':          'Dignity, purpose, and real financial stability.',
-      'b1t':'₹20,000+ Salary',          'b1d':'Competitive monthly salary from ₹20,000 with performance bonuses for excellent care.',
-      'b2t':'Free Stay in Gurgaon',     'b2d':'Comfortable accommodation fully provided. No rent, no deposit, no worry.',
-      'b3t':'Monthly Bonuses',          'b3d':'Go above and beyond and earn meaningful performance bonuses every month.',
-      'b4t':'₹2,000 Referral Bonus',    'b4d':'Refer a friend who joins elda. and earn ₹2,000 added directly to your salary. No limit.',
-      'b5t':'7-Day Free Training',      'b5d':'No experience needed. We train every partner from scratch — hands-on and fully paid.',
-      'b6t':'Meaningful Work',          'b6d':"Become the most trusted person in a senior's daily life — valued, loved, and respected.",
-      'ref-heading':    'Refer a friend. Earn ₹2,000.',
-      'ref-body':       'Know someone who'd make a great care partner? Refer them to elda. — and when they join, we add ₹2,000 straight to your salary. No cap, no forms, no waiting.',
-      'r-eyebrow':      'The Role',
-      'r-title':        "What you'll do every day",
-      'r-sub':          "Caring, consistent, compassionate — that's the elda. partner.",
-      'r1t':'Personal Hygiene Support', 'r1d':'Help seniors with bathing, grooming, and daily hygiene — with warmth and dignity.',
+      'f-title':'Apply to Join elda.','f-sub':"Takes 2 minutes. We'll call you within 24 hours.",
+      'l-name':'Full Name','l-age':'Age','l-phone':'Phone Number','l-loc':'Current Location',
+      'l-exp':'Senior Care Experience?','exp-yes':'✓ Yes, I have','exp-no':'No, but willing',
+      'l-sal':'Monthly Salary Expectation (₹)',
+      'btn-txt':'Submit Application →','fnote':'Your information is safe with us. No spam, ever.',
+      's-title':'Application Received!','s-desc':'Thank you. Our team will call you within 24 hours.<br/>Welcome to the elda. family.',
+      'b-eyebrow':'Why elda.','b-title':'A job built around you.','b-sub':'Dignity, purpose, and real financial stability.',
+      'b1t':'₹20,000+ Salary','b1d':'Competitive monthly salary from ₹20,000 with performance bonuses for excellent care.',
+      'b2t':'Free Stay in Gurgaon','b2d':'Comfortable accommodation fully provided. No rent, no deposit, no worry.',
+      'b3t':'Monthly Bonuses','b3d':'Go above and beyond and earn meaningful performance bonuses every month.',
+      'b4t':'₹2,000 Referral Bonus','b4d':'Refer a friend who joins elda. and earn ₹2,000 added directly to your salary. No limit.',
+      'b5t':'7-Day Free Training','b5d':'No experience needed. We train every partner from scratch — hands-on and fully paid.',
+      'b6t':'Meaningful Work','b6d':"Become the most trusted person in a senior's daily life — valued, loved, and respected.",
+      'ref-heading':'Refer a friend. Earn ₹2,000.','ref-body':'Know someone great? Refer them to elda. — when they join, ₹2,000 goes straight to your salary. No cap, no forms.',
+      'r-eyebrow':'The Role','r-title':"What you'll do every day",'r-sub':"Caring, consistent, compassionate — that's the elda. partner.",
+      'r1t':'Personal Hygiene Support','r1d':'Help seniors with bathing, grooming, and daily hygiene — with warmth and dignity.',
       'r2t':'Companionship & Conversation','r2d':'Spend quality time — talk, listen, play games. Loneliness is the enemy.',
       'r3t':'Daily Walks & Light Exercise','r3d':'Accompany seniors on morning or evening walks. Keep them active and safe.',
       'r4t':'Massage & Physical Comfort','r4d':'Gentle massage to ease aches, improve circulation, and bring relief.',
-      'r5t':'Daily Needs Assistance',   'r5d':'Help with meals, medicines, mobility, and general daily routines.',
-      'tr-badge':'Training Program',    'tr-title':'7 Days. Fully trained. Fully confident.',
-      'tr-desc':"No prior experience required. We train every partner from scratch — hands-on, practical, and fully paid. By Day 7 you're ready for anything.",
+      'r5t':'Daily Needs Assistance','r5d':'Help with meals, medicines, mobility, and general daily routines.',
+      'tr-badge':'Training Program','tr-title':'7 Days. Fully trained. Fully confident.',
+      'tr-desc':"No prior experience required. We train every partner from scratch — hands-on, practical, and fully paid. By Day 7 you're ready.",
       'ts1':'Senior care fundamentals & safety','ts2':'Personal hygiene & grooming',
       'ts3':'Companionship & emotional support','ts4':'Emergency response basics',
       'ts5':'elda. systems & reporting','ts6':'Live supervised practice',
-      'f-slogan':       'a concierge for modern aging',
-      'err-exp':        'Please select whether you have senior care experience.',
-      'err-fail':       'Something went wrong. Please try again or call +91 92113 45444.',
-      'submitting':     'Submitting…'
+      'f-slogan':'a concierge for modern aging',
+      'err-exp':'Please select whether you have senior care experience.',
+      'err-fail':'Something went wrong. Please try again or call +91 92113 45444.',
+      'submitting':'Submitting…'
     },
     hi: {
-      'nav-sub':        'पार्टनर पोर्टल',
-      'nav-cta':        'अभी आवेदन करें',
-      'eyebrow':        'गुरुगाम में अभी भर्ती',
-      'htitle':         'बुज़ुर्गों की देखभाल करें। <em>एक ज़िंदगी बदलें।</em>',
-      'hsubtitle':      'भरोसेमंद। सहानुभूति से भरा। हर वक़्त।',
-      'hdesc':          'elda. में Senior Care Partner बनें — एक सार्थक काम जहाँ आप बुज़ुर्गों के परिवार का हिस्सा बनते हैं। हम आपको हर ज़रूरत में साथ देते हैं।',
-      'p-sal':          '₹20,000+ / महीना',
-      'p-inc':          '+ परफॉर्मेंस बोनस',
-      'p-stay':         '🏠 गुरुगाम में मुफ्त रहाइश',
-      'p-train':        '7 दिन की ट्रेनिंग',
-      'p-ref':          '🎁 ₹2,000 रेफरल बोनस',
-      'ref-banner-text':'हर रेफरल पर ₹2,000 कमाएं!<span>अपने किसी दोस्त को elda. से जोड़ें और ₹2,000 अपनी सैलरी में पाएं।</span>',
-      'f-title':        'elda. से जुड़ने के लिए आवेदन करें',
-      'f-sub':          'सिर्फ 2 मिनट लगते हैं। हम 24 घंटे में कॉल करेंगे।',
-      'l-name':         'पूरा नाम',
-      'l-age':          'उम्र',
-      'l-phone':        'फोन नंबर',
-      'l-loc':          'वर्तमान शहर',
-      'l-exp':          'बुज़ुर्ग देखभाल का अनुभव है?',
-      'exp-yes':        '✓ हाँ, है',
-      'exp-no':         'नहीं, पर सीखूँगा/सीखूँगी',
-      'l-sal':          'मासिक वेतन अपेक्षा (₹)',
-      'btn-txt':        'आवेदन जमा करें →',
-      'fnote':          'आपकी जानकारी सुरक्षित है। कोई स्पैम नहीं।',
-      's-title':        'आवेदन मिल गया!',
-      's-desc':         'धन्यवाद। हमारी टीम 24 घंटे में कॉल करेगी।<br/>elda. परिवार में आपका स्वागत है।',
-      'b-eyebrow':      'elda. क्यों?',
-      'b-title':        'आपके लिए बना काम।',
-      'b-sub':          'सम्मान, मकसद, और असली आर्थिक स्थिरता।',
-      'b1t':'₹20,000+ वेतन',              'b1d':'₹20,000 से शुरू मासिक वेतन और अच्छे काम पर बोनस।',
-      'b2t':'गुरुगाम में मुफ्त रहाइश',   'b2d':'आरामदायक रहाइश बिल्कुल मुफ्त। न किराया, न जमा राशि।',
-      'b3t':'मासिक बोनस',                 'b3d':'बेहतरीन देखभाल करने वाले पार्टनर हर महीने बोनस कमाते हैं।',
-      'b4t':'₹2,000 रेफरल बोनस',         'b4d':'किसी दोस्त को elda. से जोड़ें और सीधे ₹2,000 अपनी सैलरी में पाएं। कोई सीमा नहीं।',
-      'b5t':'7 दिन की फ्री ट्रेनिंग',   'b5d':'अनुभव ज़रूरी नहीं। हम सबको शुरू से ट्रेन करते हैं — हाथों-हाथ और पूरी तनख्वाह के साथ।',
-      'b6t':'सार्थक काम',                 'b6d':'बुज़ुर्ग की ज़िंदगी में सबसे भरोसेमंद इंसान बनें — मूल्यवान, प्रिय, सम्मानित।',
-      'ref-heading':    'दोस्त को लाएं। ₹2,000 पाएं।',
-      'ref-body':       'कोई अच्छा उम्मीदवार जानते हैं? उन्हें elda. में भेजें — जब वो जॉइन करें, आपकी सैलरी में ₹2,000 सीधे जुड़ जाते हैं। कोई सीमा नहीं।',
-      'r-eyebrow':      'आपका काम',
-      'r-title':        'हर रोज़ आप क्या करेंगे',
-      'r-sub':          'स्नेही, नियमित, सहानुभूति से भरा — यही है elda. पार्टनर।',
-      'r1t':'स्वच्छता में सहायता',        'r1d':'नहाने, संवारने में गर्मजोशी और सम्मान से मदद।',
-      'r2t':'साथ समय बिताना',             'r2d':'बात करना, सुनना, खेलना। अकेलापन सबसे बड़ा दुश्मन है।',
-      'r3t':'सैर और हल्की कसरत',          'r3d':'सुबह-शाम सैर में साथ जाना और स्वस्थ रखना।',
-      'r4t':'मालिश और शारीरिक आराम',      'r4d':'दर्द पर आराम देने के लिए हल्की मालिश।',
-      'r5t':'रोज़मर्रा में सहायता',       'r5d':'खाना, दवाइयाँ, चलने-फिरने में मदद।',
-      'tr-badge':'ट्रेनिंग प्रोग्राम',   'tr-title':'7 दिन। पूरी ट्रेनिंग। पूरा आत्मविश्वास।',
+      'nav-sub':'पार्टनर पोर्टल','nav-cta':'अभी आवेदन करें',
+      'eyebrow':'गुरुगाम में अभी भर्ती',
+      'htitle':'बुज़ुर्गों की देखभाल करें। <em>एक ज़िंदगी बदलें।</em>',
+      'hsubtitle':'भरोसेमंद। सहानुभूति से भरा। हर वक़्त।',
+      'hdesc':'elda. में Senior Care Partner बनें — एक सार्थक काम जहाँ आप बुज़ुर्गों के परिवार का हिस्सा बनते हैं।',
+      'p-sal':'₹20,000+ / महीना','p-inc':'+ परफॉर्मेंस बोनस','p-stay':'🏠 गुरुगाम में मुफ्त रहाइश','p-train':'7 दिन की ट्रेनिंग','p-ref':'🎁 ₹2,000 रेफरल बोनस',
+      'ref-banner-text':'हर रेफरल पर ₹2,000 कमाएं!<span>अपने दोस्त को elda. से जोड़ें और ₹2,000 अपनी सैलरी में पाएं।</span>',
+      'f-title':'elda. से जुड़ने के लिए आवेदन करें','f-sub':'सिर्फ 2 मिनट। हम 24 घंटे में कॉल करेंगे।',
+      'l-name':'पूरा नाम','l-age':'उम्र','l-phone':'फोन नंबर','l-loc':'वर्तमान शहर',
+      'l-exp':'बुज़ुर्ग देखभाल का अनुभव है?','exp-yes':'✓ हाँ, है','exp-no':'नहीं, पर सीखूँगा/सीखूँगी',
+      'l-sal':'मासिक वेतन अपेक्षा (₹)',
+      'btn-txt':'आवेदन जमा करें →','fnote':'आपकी जानकारी सुरक्षित है। कोई स्पैम नहीं।',
+      's-title':'आवेदन मिल गया!','s-desc':'धन्यवाद। हमारी टीम 24 घंटे में कॉल करेगी।<br/>elda. परिवार में आपका स्वागत है।',
+      'b-eyebrow':'elda. क्यों?','b-title':'आपके लिए बना काम।','b-sub':'सम्मान, मकसद, और असली आर्थिक स्थिरता।',
+      'b1t':'₹20,000+ वेतन','b1d':'₹20,000 से शुरू मासिक वेतन और अच्छे काम पर बोनस।',
+      'b2t':'गुरुगाम में मुफ्त रहाइश','b2d':'आरामदायक रहाइश बिल्कुल मुफ्त। न किराया, न जमा राशि।',
+      'b3t':'मासिक बोनस','b3d':'बेहतरीन देखभाल करने वाले पार्टनर हर महीने बोनस कमाते हैं।',
+      'b4t':'₹2,000 रेफरल बोनस','b4d':'किसी दोस्त को elda. से जोड़ें और सीधे ₹2,000 अपनी सैलरी में पाएं। कोई सीमा नहीं।',
+      'b5t':'7 दिन की फ्री ट्रेनिंग','b5d':'अनुभव ज़रूरी नहीं। हम सबको शुरू से ट्रेन करते हैं — हाथों-हाथ।',
+      'b6t':'सार्थक काम','b6d':'बुज़ुर्ग की ज़िंदगी में सबसे भरोसेमंद इंसान बनें — मूल्यवान, प्रिय, सम्मानित।',
+      'ref-heading':'दोस्त को लाएं। ₹2,000 पाएं।','ref-body':'कोई अच्छा उम्मीदवार जानते हैं? उन्हें elda. में भेजें — जब वो जॉइन करें, ₹2,000 सीधे आपकी सैलरी में।',
+      'r-eyebrow':'आपका काम','r-title':'हर रोज़ आप क्या करेंगे','r-sub':'स्नेही, नियमित, सहानुभूति से भरा — यही है elda. पार्टनर।',
+      'r1t':'स्वच्छता में सहायता','r1d':'नहाने, संवारने में गर्मजोशी और सम्मान से मदद।',
+      'r2t':'साथ समय बिताना','r2d':'बात करना, सुनना, खेलना। अकेलापन सबसे बड़ा दुश्मन है।',
+      'r3t':'सैर और हल्की कसरत','r3d':'सुबह-शाम सैर में साथ जाना और स्वस्थ रखना।',
+      'r4t':'मालिश और शारीरिक आराम','r4d':'दर्द पर आराम देने के लिए हल्की मालिश।',
+      'r5t':'रोज़मर्रा में सहायता','r5d':'खाना, दवाइयाँ, चलने-फिरने में मदद।',
+      'tr-badge':'ट्रेनिंग प्रोग्राम','tr-title':'7 दिन। पूरी ट्रेनिंग। पूरा आत्मविश्वास।',
       'tr-desc':'पुराना अनुभव ज़रूरी नहीं। हम सबको शुरू से ट्रेन करते हैं — हाथों-हाथ, व्यावहारिक। Day 7 तक आप तैयार।',
       'ts1':'बुज़ुर्ग देखभाल की बुनियादें','ts2':'स्वच्छता और अंग संवार',
       'ts3':'साथ बिताना और भावनात्मक सहायता','ts4':'आपातकालीन प्रतिक्रिया',
       'ts5':'elda. सिस्टम और रिपोर्टिंग','ts6':'लाइव निगरानी अभ्यास',
-      'f-slogan':       'आधुनिक बुज़ुर्ग जीवन का कंसीयर्ह',
-      'err-exp':        'कृपया बताएं कि क्या आपको बुज़ुर्ग देखभाल का अनुभव है।',
-      'err-fail':       'कुछ गलत हो गया। कृपया दोबारा कोशिश करें या +91 92113 45444 पर कॉल करें।',
-      'submitting':     'जमा हो रहा है…'
+      'f-slogan':'आधुनिक बुज़ुर्ग जीवन का कंसीयर्ह',
+      'err-exp':'कृपया बताएं कि क्या आपको बुज़ुर्ग देखभाल का अनुभव है।',
+      'err-fail':'कुछ गलत हो गया। कृपया दोबारा कोशिश करें या +91 92113 45444 पर कॉल करें।',
+      'submitting':'जमा हो रहा है…'
     }
   };
 
-  var HINDI_IDS = ['nav-sub','nav-cta','eyebrow','htitle','hsubtitle','hdesc','p-sal','p-inc','p-stay','p-train','p-ref','ref-banner-text','f-title','f-sub','l-name','l-age','l-phone','l-loc','l-exp','exp-yes','exp-no','l-sal','btn-txt','fnote','s-title','s-desc','b-eyebrow','b-title','b-sub','b1t','b1d','b2t','b2d','b3t','b3d','b4t','b4d','b5t','b5d','b6t','b6d','ref-heading','ref-body','r-eyebrow','r-title','r-sub','r1t','r1d','r2t','r2d','r3t','r3d','r4t','r4d','r5t','r5d','tr-badge','tr-title','tr-desc','ts1','ts2','ts3','ts4','ts5','ts6','f-slogan'];
+  // Elements that need Hindi font applied via inline style (overrides CSS specificity)
+  var ALL_IDS = Object.keys(STRINGS.en);
 
   function setLang(l) {
     curLang = l;
     document.getElementById('lb-en').classList.toggle('on', l === 'en');
     document.getElementById('lb-hi').classList.toggle('on', l === 'hi');
-
-    var strings = STRINGS[l];
+    var s = STRINGS[l];
     var isHindi = (l === 'hi');
-
-    HINDI_IDS.forEach(function(id) {
+    var hindiFontStack = "'Tiro Devanagari Hindi', serif";
+    ALL_IDS.forEach(function(id) {
       var el = document.getElementById(id);
-      if (!el) return;
-      if (strings[id] !== undefined) {
-        el.innerHTML = strings[id];
-      }
-      // Apply/remove Hindi font class
-      if (isHindi) {
-        el.classList.add('hindi-text');
-      } else {
-        el.classList.remove('hindi-text');
-      }
+      if (!el || s[id] === undefined) return;
+      el.innerHTML = s[id];
+      // Force font via inline style — beats any CSS specificity
+      el.style.fontFamily = isHindi ? hindiFontStack : '';
+      el.style.letterSpacing = isHindi ? '0' : '';
+      el.style.textTransform = isHindi ? 'none' : '';
     });
-
-    // Reset experience buttons text if already picked
-    if (exp) {
-      document.getElementById('exp-yes').innerHTML = strings['exp-yes'];
-      document.getElementById('exp-no').innerHTML = strings['exp-no'];
-    }
   }
 
   function pick(val, el) {
@@ -471,48 +423,53 @@
     el.classList.add('sel');
   }
 
-  function doSubmit(e) {
-    e.preventDefault();
-    document.getElementById('err-box').style.display = 'none';
+  // Attach submit listener via JS — more reliable than onsubmit attribute
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('the-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-    if (!exp) {
-      var eb = document.getElementById('err-box');
-      eb.textContent = STRINGS[curLang]['err-exp'];
-      eb.style.display = 'block';
-      return;
-    }
+      document.getElementById('err-box').style.display = 'none';
 
-    var btn = document.getElementById('sbtn');
-    btn.disabled = true;
-    document.getElementById('btn-txt').textContent = STRINGS[curLang]['submitting'];
+      if (!exp) {
+        var eb = document.getElementById('err-box');
+        eb.textContent = STRINGS[curLang]['err-exp'];
+        eb.style.display = 'block';
+        return;
+      }
 
-    var body = [
-      encodeURIComponent(FIELDS.name)       + '=' + encodeURIComponent(document.getElementById('f-name').value.trim()),
-      encodeURIComponent(FIELDS.age)        + '=' + encodeURIComponent(document.getElementById('f-age').value.trim()),
-      encodeURIComponent(FIELDS.phone)      + '=' + encodeURIComponent(document.getElementById('f-phone').value.trim()),
-      encodeURIComponent(FIELDS.location)   + '=' + encodeURIComponent(document.getElementById('f-loc').value.trim()),
-      encodeURIComponent(FIELDS.experience) + '=' + encodeURIComponent(exp),
-      encodeURIComponent(FIELDS.salary)     + '=' + encodeURIComponent(document.getElementById('f-sal').value.trim())
-    ].join('&');
+      var btn = document.getElementById('sbtn');
+      btn.disabled = true;
+      document.getElementById('btn-txt').textContent = STRINGS[curLang]['submitting'];
 
-    fetch(FORM_ACTION, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    })
-    .then(function() {
-      document.getElementById('the-form').style.display = 'none';
-      document.getElementById('succ').style.display = 'block';
-    })
-    .catch(function() {
-      btn.disabled = false;
-      document.getElementById('btn-txt').innerHTML = STRINGS[curLang]['btn-txt'];
-      var eb = document.getElementById('err-box');
-      eb.textContent = STRINGS[curLang]['err-fail'];
-      eb.style.display = 'block';
+      var body = [
+        encodeURIComponent(FIELDS.name)       + '=' + encodeURIComponent(document.getElementById('f-name').value.trim()),
+        encodeURIComponent(FIELDS.age)        + '=' + encodeURIComponent(document.getElementById('f-age').value.trim()),
+        encodeURIComponent(FIELDS.phone)      + '=' + encodeURIComponent(document.getElementById('f-phone').value.trim()),
+        encodeURIComponent(FIELDS.location)   + '=' + encodeURIComponent(document.getElementById('f-loc').value.trim()),
+        encodeURIComponent(FIELDS.experience) + '=' + encodeURIComponent(exp),
+        encodeURIComponent(FIELDS.salary)     + '=' + encodeURIComponent(document.getElementById('f-sal').value.trim())
+      ].join('&');
+
+      fetch(FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+      .then(function() {
+        document.getElementById('the-form').style.display = 'none';
+        document.getElementById('succ').style.display = 'block';
+      })
+      .catch(function() {
+        btn.disabled = false;
+        document.getElementById('btn-txt').innerHTML = STRINGS[curLang]['btn-txt'];
+        var eb = document.getElementById('err-box');
+        eb.textContent = STRINGS[curLang]['err-fail'];
+        eb.style.display = 'block';
+      });
     });
-  }
+  });
 
   setLang('en');
 </script>
