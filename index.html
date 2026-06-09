@@ -3,373 +3,440 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join elda. — Become a Senior Care Partner</title>
+  <title>Join elda. — Senior Care Partner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Tiro+Devanagari+Hindi@0;1&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --green: #4f896b; --green-dark: #3a6b52; --green-light: #e8f2ec;
-      --green-mid: #c2dace; --cream: #f6f1ea; --cream-dark: #ede6db;
-      --cream-border: #e0d8cc; --text: #1a2e22; --muted: #6b7e72; --white: #ffffff;
+      --g: #4f896b; --gd: #3a6b52; --gl: #e8f2ec; --gm: #c2dace;
+      --cr: #f6f1ea; --cb: #e0d8cc; --tx: #1a2e22; --mu: #6b7e72; --wh: #fff;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Libre Baskerville', Georgia, serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+    body { font-family: 'Libre Baskerville', serif; background: var(--cr); color: var(--tx); }
 
-    .lang-bar { background: var(--cream-dark); border-bottom: 1px solid var(--cream-border); display: flex; justify-content: flex-end; align-items: center; padding: 6px 48px; gap: 6px; }
-    .lang-btn { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; border: 1.5px solid var(--cream-border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
-    .lang-btn.active { background: var(--green); color: var(--cream); border-color: var(--green); }
-    .lang-btn:hover:not(.active) { border-color: var(--green); color: var(--green); }
+    /* ── LANG BAR ── */
+    .lang-bar { background: #ede6db; border-bottom: 1px solid var(--cb); display: flex; justify-content: flex-end; padding: 7px 48px; gap: 6px; }
+    .lb { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; padding: 5px 16px; border-radius: 20px; border: 1.5px solid var(--cb); background: transparent; color: var(--mu); cursor: pointer; transition: all .15s; }
+    .lb.on { background: var(--g); color: var(--cr); border-color: var(--g); }
 
-    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--cream-border); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; }
-    .logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; color: var(--green); letter-spacing: -0.5px; text-decoration: none; }
-    .logo span { font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: 13px; color: var(--muted); margin-left: 8px; }
-    .nav-cta { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; padding: 9px 20px; background: var(--green); color: var(--cream); border-radius: 6px; text-decoration: none; transition: background 0.15s; }
-    .nav-cta:hover { background: var(--green-dark); }
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 99; background: var(--wh); border-bottom: 1px solid var(--cb); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+    .logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; color: var(--g); text-decoration: none; letter-spacing: -.5px; }
+    .logo small { font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: 13px; color: var(--mu); margin-left: 8px; }
+    .ncta { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; padding: 9px 20px; background: var(--g); color: var(--cr); border-radius: 6px; text-decoration: none; transition: background .15s; }
+    .ncta:hover { background: var(--gd); }
 
-    .hero { background: var(--green); padding: 80px 48px 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); margin-bottom: 16px; }
-    .hero-title { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 700; color: var(--cream); line-height: 1.15; margin-bottom: 20px; }
-    .hero-title em { font-style: italic; color: var(--green-mid); }
-    .hero-desc { font-family: 'Libre Baskerville', serif; font-size: 15px; color: rgba(246,241,234,0.85); line-height: 1.8; margin-bottom: 28px; }
-    .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
-    .pill { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; padding: 6px 14px; border-radius: 20px; background: rgba(246,241,234,0.12); border: 1px solid rgba(246,241,234,0.25); color: var(--cream); }
-    .pill.highlight { background: var(--cream); color: var(--green); border-color: var(--cream); }
+    /* ── HERO ── */
+    .hero { background: var(--g); padding: 72px 48px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gm); margin-bottom: 14px; }
+    .htitle { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; color: var(--cr); line-height: 1.15; margin-bottom: 18px; }
+    .htitle em { color: var(--gm); font-style: italic; }
+    .hdesc { font-size: 15px; color: rgba(246,241,234,.85); line-height: 1.85; margin-bottom: 26px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 9px; }
+    .pill { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; padding: 5px 13px; border-radius: 20px; background: rgba(246,241,234,.12); border: 1px solid rgba(246,241,234,.25); color: var(--cr); }
+    .pill.hl { background: var(--cr); color: var(--g); border-color: var(--cr); }
 
-    .form-card { background: var(--white); border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 40px rgba(26,46,34,0.15); }
-    .form-card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-    .form-card-sub { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 13px; color: var(--muted); margin-bottom: 24px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-    .form-row.single { grid-template-columns: 1fr; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); }
-    .form-input { font-family: 'Libre Baskerville', serif; font-size: 14px; padding: 11px 14px; border: 1.5px solid var(--cream-border); border-radius: 8px; background: var(--cream); color: var(--text); outline: none; transition: border-color 0.15s, background 0.15s; width: 100%; }
-    .form-input:focus { border-color: var(--green); background: var(--white); }
-    .radio-group { display: flex; gap: 10px; margin-top: 2px; }
-    .radio-option { flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 11px 14px; border: 1.5px solid var(--cream-border); border-radius: 8px; background: var(--cream); cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); transition: all 0.15s; user-select: none; }
-    .radio-option:hover { border-color: var(--green); color: var(--green); }
-    .radio-option.selected { border-color: var(--green); background: var(--green-light); color: var(--green); }
-    .submit-btn { width: 100%; padding: 14px; background: var(--green); color: var(--cream); font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; border: none; border-radius: 8px; cursor: pointer; margin-top: 8px; transition: background 0.15s; }
-    .submit-btn:hover { background: var(--green-dark); }
-    .submit-btn:disabled { background: var(--muted); cursor: not-allowed; }
-    .form-note { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
-    .error-msg { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #c0392b; background: #fdeaea; border: 1px solid #f5c6c6; border-radius: 6px; padding: 10px 14px; margin-top: 10px; display: none; }
+    /* ── FORM CARD ── */
+    .fcard { background: var(--wh); border-radius: 16px; padding: 34px 30px; box-shadow: 0 6px 48px rgba(26,46,34,.18); }
+    .ftitle { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--tx); margin-bottom: 3px; }
+    .fsub { font-style: italic; font-size: 13px; color: var(--mu); margin-bottom: 22px; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-bottom: 13px; }
+    .frow.one { grid-template-columns: 1fr; }
+    .fg { display: flex; flex-direction: column; gap: 5px; }
+    .fl { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--mu); }
+    .fi { font-family: 'Libre Baskerville', serif; font-size: 14px; padding: 11px 13px; border: 1.5px solid var(--cb); border-radius: 8px; background: var(--cr); color: var(--tx); outline: none; width: 100%; transition: border-color .15s, background .15s; }
+    .fi:focus { border-color: var(--g); background: var(--wh); }
+    .rg { display: flex; gap: 9px; }
+    .ro { flex: 1; display: flex; align-items: center; justify-content: center; padding: 11px; border: 1.5px solid var(--cb); border-radius: 8px; background: var(--cr); cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--mu); transition: all .15s; user-select: none; text-align: center; }
+    .ro:hover { border-color: var(--g); color: var(--g); }
+    .ro.sel { border-color: var(--g); background: var(--gl); color: var(--g); }
+    .sbtn { width: 100%; padding: 14px; background: var(--g); color: var(--cr); font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; margin-top: 6px; transition: background .15s; }
+    .sbtn:hover { background: var(--gd); }
+    .sbtn:disabled { background: var(--mu); cursor: not-allowed; }
+    .fnote { font-style: italic; font-size: 11px; color: var(--mu); text-align: center; margin-top: 9px; }
+    .err { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 7px; padding: 10px 13px; margin-top: 10px; display: none; }
 
-    .success-state { display: none; text-align: center; padding: 20px 0; }
-    .success-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
-    .success-icon svg { width: 28px; height: 28px; stroke: var(--green); }
-    .success-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .success-desc { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 14px; color: var(--muted); }
+    /* ── SUCCESS ── */
+    .succ { display: none; text-align: center; padding: 18px 0; }
+    .sico { width: 58px; height: 58px; border-radius: 50%; background: var(--gl); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+    .sico svg { width: 26px; height: 26px; stroke: var(--g); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .stitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 600; color: var(--tx); margin-bottom: 7px; }
+    .sdesc { font-style: italic; font-size: 14px; color: var(--mu); line-height: 1.7; }
 
-    .benefits { background: var(--white); padding: 72px 48px; }
-    .section-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; text-align: center; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 600; color: var(--text); text-align: center; margin-bottom: 8px; line-height: 1.2; }
-    .section-sub { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 15px; color: var(--muted); text-align: center; margin-bottom: 48px; }
-    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
-    .benefit-card { background: var(--cream); border-radius: 12px; border: 1px solid var(--cream-border); padding: 24px 22px; }
-    .benefit-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 20px; }
-    .benefit-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .benefit-desc { font-family: 'Libre Baskerville', serif; font-size: 13px; color: var(--muted); line-height: 1.7; }
+    /* ── BENEFITS ── */
+    .sec { padding: 68px 48px; }
+    .sec.wh { background: var(--wh); }
+    .sec.cr { background: var(--cr); }
+    .seyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--g); text-align: center; margin-bottom: 10px; }
+    .stit { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 600; color: var(--tx); text-align: center; margin-bottom: 8px; line-height: 1.2; }
+    .ssub { font-style: italic; font-size: 15px; color: var(--mu); text-align: center; margin-bottom: 44px; }
+    .bgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; max-width: 920px; margin: 0 auto; }
+    .bc { background: var(--cr); border-radius: 12px; border: 1px solid var(--cb); padding: 22px 20px; }
+    .sec.wh .bc { background: var(--cr); }
+    .bico { width: 42px; height: 42px; border-radius: 9px; background: var(--gl); display: flex; align-items: center; justify-content: center; font-size: 19px; margin-bottom: 12px; }
+    .btit { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--tx); margin-bottom: 5px; }
+    .bdesc { font-size: 13px; color: var(--mu); line-height: 1.7; }
 
-    .what-section { padding: 72px 48px; background: var(--cream); }
-    .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 900px; margin: 0 auto; align-items: start; }
-    .what-list { list-style: none; }
-    .what-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--cream-border); }
-    .what-item:last-child { border-bottom: none; }
-    .what-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 8px; }
-    .what-text { font-family: 'Libre Baskerville', serif; font-size: 14px; color: var(--text); }
-    .what-text strong { font-weight: 700; color: var(--green); display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: 0.3px; margin-bottom: 2px; }
-    .training-card { background: var(--green); border-radius: 14px; padding: 28px 26px; }
-    .training-badge { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(246,241,234,0.15); border: 1px solid rgba(246,241,234,0.3); color: var(--cream); padding: 5px 12px; border-radius: 20px; margin-bottom: 16px; }
-    .training-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--cream); margin-bottom: 12px; line-height: 1.3; }
-    .training-desc { font-family: 'Libre Baskerville', serif; font-size: 13px; color: rgba(246,241,234,0.8); line-height: 1.8; margin-bottom: 20px; }
-    .training-steps { display: flex; flex-direction: column; gap: 10px; }
-    .training-step { display: flex; align-items: center; gap: 12px; }
-    .step-num { width: 26px; height: 26px; border-radius: 50%; background: rgba(246,241,234,0.15); border: 1px solid rgba(246,241,234,0.3); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .step-text { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500; color: rgba(246,241,234,0.9); }
+    /* ── ROLE ── */
+    .wgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; max-width: 920px; margin: 0 auto; align-items: start; }
+    .wlist { list-style: none; }
+    .wi { display: flex; gap: 13px; padding: 13px 0; border-bottom: 1px solid var(--cb); }
+    .wi:last-child { border-bottom: none; }
+    .wd { width: 7px; height: 7px; border-radius: 50%; background: var(--g); flex-shrink: 0; margin-top: 9px; }
+    .wt { font-size: 14px; color: var(--tx); line-height: 1.7; }
+    .wt strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: var(--g); letter-spacing: .3px; margin-bottom: 2px; }
+    .tcard { background: var(--g); border-radius: 14px; padding: 26px 24px; }
+    .tbadge { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(246,241,234,.14); border: 1px solid rgba(246,241,234,.28); color: var(--cr); padding: 5px 11px; border-radius: 20px; margin-bottom: 14px; }
+    .ttit { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--cr); margin-bottom: 11px; line-height: 1.3; }
+    .tdesc { font-size: 13px; color: rgba(246,241,234,.82); line-height: 1.85; margin-bottom: 18px; }
+    .tsteps { display: flex; flex-direction: column; gap: 9px; }
+    .ts { display: flex; align-items: center; gap: 11px; }
+    .tsn { width: 25px; height: 25px; border-radius: 50%; background: rgba(246,241,234,.13); border: 1px solid rgba(246,241,234,.28); font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--cr); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tst { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500; color: rgba(246,241,234,.9); }
 
-    footer { background: var(--text); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; color: var(--cream); }
-    .footer-text { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 13px; color: rgba(246,241,234,0.5); }
-    .footer-contact { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; color: var(--green-mid); }
+    /* ── FOOTER ── */
+    footer { background: var(--tx); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .flogo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; color: var(--cr); }
+    .fslogan { font-style: italic; font-size: 13px; color: rgba(246,241,234,.45); }
+    .fcon { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; color: var(--gm); }
 
-    .hi { display: none; font-family: 'Tiro Devanagari Hindi', serif; }
-    .en { display: block; }
-    span.hi { display: none; }
-    span.en { display: inline; }
+    /* ── HINDI FONT OVERRIDE ── */
+    .hi * { font-family: 'Tiro Devanagari Hindi', serif !important; }
+    .hi .eyebrow, .hi .fl, .hi .btit, .hi .wt strong, .hi .tst, .hi .tbadge,
+    .hi .logo, .hi .flogo, .hi .fcon, .hi .lb, .hi .ncta, .hi .sbtn, .hi .pill,
+    .hi .btit { font-family: 'Tiro Devanagari Hindi', serif !important; letter-spacing: 0 !important; text-transform: none !important; }
 
-    @media (max-width: 768px) {
-      .lang-bar { padding: 6px 20px; }
-      nav { padding: 0 20px; }
-      .hero { grid-template-columns: 1fr; padding: 48px 20px 40px; gap: 32px; }
-      .hero-title { font-size: 30px; }
-      .benefits { padding: 48px 20px; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .what-section { padding: 48px 20px; }
-      .what-grid { grid-template-columns: 1fr; gap: 32px; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px) {
+      .lang-bar, nav, .hero, .sec, footer { padding-left: 20px; padding-right: 20px; }
+      .hero { grid-template-columns: 1fr; padding-top: 44px; padding-bottom: 36px; gap: 28px; }
+      .htitle { font-size: 30px; }
+      .bgrid { grid-template-columns: 1fr; }
+      .wgrid { grid-template-columns: 1fr; gap: 28px; }
+      .frow { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
+<!-- LANG BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
-  <button class="lang-btn" id="btn-hi" onclick="setLang('hi')">हिंदी</button>
+  <button class="lb on" id="lb-en" onclick="lang('en')">English</button>
+  <button class="lb" id="lb-hi" onclick="lang('hi')">हिंदी</button>
 </div>
 
+<!-- NAV -->
 <nav>
-  <a href="https://getelda.com" class="logo">elda. <span><span class="en">partner portal</span><span class="hi" style="font-style:normal">पार्टनर पोर्टल</span></span></a>
-  <a href="#apply" class="nav-cta"><span class="en">Apply Now</span><span class="hi">अभी आवेदन करें</span></a>
+  <a href="https://getelda.com" class="logo">elda.<small id="nav-sub">partner portal</small></a>
+  <a href="#apply" class="ncta" id="nav-cta">Apply Now</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-eyebrow"><span class="en">Now Hiring in Gurgaon</span><span class="hi">गुरुगाम में अभी भर्ती हो रही है</span></div>
-    <h1 class="hero-title"><span class="en">Care for a senior.<br/><em>Change a life.</em></span><span class="hi" style="font-size:36px;line-height:1.5">बुज़ुर्गों की देखभाल करें।<br/><em>एक जिंदगी बदलें।</em></span></h1>
-    <p class="hero-desc">
-      <span class="en">Join elda. as a Senior Care Partner — a meaningful role where you become extended family for the seniors in our care. We provide everything you need to thrive.</span>
-      <span class="hi">elda. में Senior Care Partner बनें — एक सार्थक काम जहाँ आप बुज़ुर्गों के परिवार का हिस्सा बनते हैं। हम आपको हर ज़रूरत में साथ देते हैं।</span>
-    </p>
-    <div class="hero-pills">
-      <span class="pill highlight">&#8377;20,000+ / <span class="en">month</span><span class="hi">महीना</span></span>
-      <span class="pill"><span class="en">+ Performance Incentives</span><span class="hi">+ योग्यता बोनस</span></span>
-      <span class="pill"><span class="en">🏠 Free Stay in Gurgaon</span><span class="hi">🏠 गुरुगाम में मुफ्त रहाइश</span></span>
-      <span class="pill"><span class="en">7-Day Training Included</span><span class="hi">7 दिन की फ्री ट्रेनिंग</span></span>
+    <div class="eyebrow" id="eyebrow">Now Hiring in Gurgaon</div>
+    <h1 class="htitle" id="htitle">Care for a senior.<br/><em>Change a life.</em></h1>
+    <p class="hdesc" id="hdesc">Join elda. as a Senior Care Partner — a meaningful role where you become extended family for the seniors in our care. We provide everything you need to thrive.</p>
+    <div class="pills">
+      <span class="pill hl">&#8377;20,000+ / <span id="p-month">month</span></span>
+      <span class="pill" id="p-inc">+ Performance Incentives</span>
+      <span class="pill" id="p-stay">🏠 Free Stay in Gurgaon</span>
+      <span class="pill" id="p-train">7-Day Training Included</span>
     </div>
   </div>
 
   <div id="apply">
-    <div class="form-card">
-      <div class="form-card-title"><span class="en">Apply to Join elda.</span><span class="hi">elda. से जुड़ने के लिए आवेदन करें</span></div>
-      <div class="form-card-sub"><span class="en">Takes 2 minutes. We'll call you within 24 hours.</span><span class="hi">सिर्फ 2 मिनट लगते हैं। हम 24 घंटे में कॉल करेंगे।</span></div>
+    <div class="fcard">
+      <div class="ftitle" id="f-title">Apply to Join elda.</div>
+      <div class="fsub" id="f-sub">Takes 2 minutes. We'll call you within 24 hours.</div>
 
-      <form id="partner-form" onsubmit="submitForm(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="f-name"><span class="en">Full Name</span><span class="hi">पूरा नाम</span></label>
-            <input type="text" id="f-name" class="form-input" required />
+      <form id="the-form" onsubmit="submit(event)">
+        <div class="frow">
+          <div class="fg">
+            <label class="fl" id="l-name">Full Name</label>
+            <input class="fi" id="f-name" type="text" required />
           </div>
-          <div class="form-group">
-            <label class="form-label" for="f-age"><span class="en">Age</span><span class="hi">उम्र</span></label>
-            <input type="number" id="f-age" class="form-input" min="18" max="65" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="f-phone"><span class="en">Phone Number</span><span class="hi">फोन नंबर</span></label>
-            <input type="tel" id="f-phone" class="form-input" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-location"><span class="en">Current Location</span><span class="hi">वर्तमान शहर</span></label>
-            <input type="text" id="f-location" class="form-input" required />
+          <div class="fg">
+            <label class="fl" id="l-age">Age</label>
+            <input class="fi" id="f-age" type="number" min="18" max="65" required />
           </div>
         </div>
-        <div class="form-row single">
-          <div class="form-group">
-            <label class="form-label"><span class="en">Senior Care Experience?</span><span class="hi">बुज़ुर्ग देखभाल का अनुभव है?</span></label>
-            <div class="radio-group">
-              <div class="radio-option" id="opt-yes" onclick="selectExp('Yes',this)">
-                <span class="en">✓ Yes, I have</span><span class="hi">✓ हाँ, है</span>
+        <div class="frow">
+          <div class="fg">
+            <label class="fl" id="l-phone">Phone Number</label>
+            <input class="fi" id="f-phone" type="tel" required />
+          </div>
+          <div class="fg">
+            <label class="fl" id="l-loc">Current Location</label>
+            <input class="fi" id="f-loc" type="text" required />
+          </div>
+        </div>
+        <div class="frow one">
+          <div class="fg">
+            <label class="fl" id="l-exp">Senior Care Experience?</label>
+            <div class="rg">
+              <div class="ro" id="opt-y" onclick="pick('y',this)" id="opt-yes">
+                <span id="exp-yes">✓ Yes, I have</span>
               </div>
-              <div class="radio-option" id="opt-no" onclick="selectExp('No',this)">
-                <span class="en">No, but willing to learn</span><span class="hi">नहीं, पर सीखना चाहता/चाहती हूँ</span>
+              <div class="ro" id="opt-n" onclick="pick('n',this)">
+                <span id="exp-no">No, but willing to learn</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="form-row single">
-          <div class="form-group">
-            <label class="form-label" for="f-salary"><span class="en">Monthly Salary Expectation (&#8377;)</span><span class="hi">मासिक वेतन अपेक्षा (&#8377;)</span></label>
-            <input type="text" id="f-salary" class="form-input" required />
+        <div class="frow one">
+          <div class="fg">
+            <label class="fl" id="l-sal">Monthly Salary Expectation (&#8377;)</label>
+            <input class="fi" id="f-sal" type="text" required />
           </div>
         </div>
-        <div class="error-msg" id="error-msg"></div>
-        <button type="submit" class="submit-btn" id="submit-btn">
-          <span class="en">Submit Application →</span><span class="hi">आवेदन जमा करें →</span>
-        </button>
-        <p class="form-note"><span class="en">Your information is safe with us. No spam, ever.</span><span class="hi">आपकी जानकारी सुरक्षित है। कोई स्पैम नहीं।</span></p>
+        <div class="err" id="err-box"></div>
+        <button class="sbtn" id="sbtn" type="submit"><span id="btn-txt">Submit Application →</span></button>
+        <p class="fnote" id="fnote">Your information is safe with us. No spam, ever.</p>
       </form>
 
-      <div class="success-state" id="success-state">
-        <div class="success-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-        <div class="success-title"><span class="en">Application Received!</span><span class="hi">आवेदन मिल गया!</span></div>
-        <div class="success-desc"><span class="en">Thank you. Our team will call you within 24 hours.<br/>Welcome to the elda. family.</span><span class="hi">धन्यवाद। हमारी टीम 24 घंटे में कॉल करेगी।<br/>elda. परिवार में आपका स्वागत है।</span></div>
+      <div class="succ" id="succ">
+        <div class="sico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="stitle" id="s-title">Application Received!</div>
+        <div class="sdesc" id="s-desc">Thank you. Our team will call you within 24 hours.<br/>Welcome to the elda. family.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="benefits">
-  <div class="section-eyebrow"><span class="en">Why elda.</span><span class="hi">elda. क्यों?</span></div>
-  <h2 class="section-title"><span class="en">A job with dignity,<br/>purpose, and stability.</span><span class="hi">सम्मान, उद्देश्य और स्थिरता<br/>वाला काम।</span></h2>
-  <p class="section-sub"><span class="en">We take care of our partners the same way we take care of seniors.</span><span class="hi">हम अपने पार्टनर का उतना ही ख्याल रखते हैं जितना बुज़ुर्गों का।</span></p>
-  <div class="benefits-grid">
-    <div class="benefit-card">
-      <div class="benefit-icon">&#8377;</div>
-      <div class="benefit-title"><span class="en">&#8377;20,000+ Salary</span><span class="hi">&#8377;20,000+ मासिक वेतन</span></div>
-      <div class="benefit-desc"><span class="en">Competitive monthly salary starting at &#8377;20,000 with performance incentives for every senior you serve well.</span><span class="hi">&#8377;20,000 से शुरू होने वाला प्रतिस्पर्धी मासिक वेतन और अच्छे काम पर बोनस।</span></div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">🏠</div>
-      <div class="benefit-title"><span class="en">Free Stay in Gurgaon</span><span class="hi">गुरुगाम में मुफ्त रहाइश</span></div>
-      <div class="benefit-desc"><span class="en">We provide comfortable accommodation in Gurgaon — no rent, no worry. Focus fully on your work and savings.</span><span class="hi">गुरुगाम में आरामदायक रहाइश मुफ्त में। किराया नहीं, चिंता नहीं।</span></div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">📈</div>
-      <div class="benefit-title"><span class="en">Monthly Incentives</span><span class="hi">मासिक इंसेंटिव</span></div>
-      <div class="benefit-desc"><span class="en">Our partners who go above and beyond earn meaningful bonuses every month.</span><span class="hi">बेहतरीन सेवा देने वाले पार्टनर हर महीने आकर्षक बोनस कमाते हैं।</span></div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">🎓</div>
-      <div class="benefit-title"><span class="en">7-Day Paid Training</span><span class="hi">7 दिन की फ्री ट्रेनिंग</span></div>
-      <div class="benefit-desc"><span class="en">No experience? No problem. We train every partner before they start — fully paid, fully prepared.</span><span class="hi">अनुभव नहीं? कोई बात नहीं। शुरू करने से पहले हम हर पार्टनर को ट्रेन करते हैं।</span></div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">❤️</div>
-      <div class="benefit-title"><span class="en">Meaningful Work</span><span class="hi">सार्थक काम</span></div>
-      <div class="benefit-desc"><span class="en">You become the most important person in a senior's daily life — trusted, valued, loved.</span><span class="hi">आप बुज़ुर्ग की ज़िंदगी में सबसे ज़रूरी इंसान बनते हैं — भरोसेमंद, प्यारे।</span></div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">🤝</div>
-      <div class="benefit-title"><span class="en">Backed by elda.</span><span class="hi">elda. का पूरा सहारा</span></div>
-      <div class="benefit-desc"><span class="en">Full operational support, a dedicated coordinator, and a team that always has your back.</span><span class="hi">हमेशा साथ रहने वाला समर्पित कोर्डिनेटर और पूरी टीम का सहारा।</span></div>
-    </div>
+<!-- BENEFITS -->
+<section class="sec wh">
+  <div class="seyebrow" id="b-eyebrow">Why elda.</div>
+  <h2 class="stit" id="b-title">A job with dignity,<br/>purpose, and stability.</h2>
+  <p class="ssub" id="b-sub">We take care of our partners the same way we take care of seniors.</p>
+  <div class="bgrid">
+    <div class="bc"><div class="bico">&#8377;</div><div class="btit" id="b1t">&#8377;20,000+ Salary</div><div class="bdesc" id="b1d">Competitive monthly salary starting at &#8377;20,000 with performance incentives for excellent work.</div></div>
+    <div class="bc"><div class="bico">🏠</div><div class="btit" id="b2t">Free Stay in Gurgaon</div><div class="bdesc" id="b2d">Comfortable accommodation in Gurgaon provided — no rent, no worry. Focus on your work and savings.</div></div>
+    <div class="bc"><div class="bico">📈</div><div class="btit" id="b3t">Monthly Incentives</div><div class="bdesc" id="b3d">Partners who go above and beyond earn meaningful bonuses every single month.</div></div>
+    <div class="bc"><div class="bico">🎓</div><div class="btit" id="b4t">7-Day Paid Training</div><div class="bdesc" id="b4d">No experience? No problem. We train every partner before they start — fully paid, fully prepared.</div></div>
+    <div class="bc"><div class="bico">❤️</div><div class="btit" id="b5t">Meaningful Work</div><div class="bdesc" id="b5d">You become the most important person in a senior's daily life — trusted, valued, and loved.</div></div>
+    <div class="bc"><div class="bico">🤝</div><div class="btit" id="b6t">Backed by elda.</div><div class="bdesc" id="b6d">A dedicated coordinator and full team support, always there when you need help on the ground.</div></div>
   </div>
 </section>
 
-<section class="what-section">
-  <div style="text-align:center;margin-bottom:48px">
-    <div class="section-eyebrow"><span class="en">The Role</span><span class="hi">आपका काम</span></div>
-    <h2 class="section-title"><span class="en">What you'll do every day</span><span class="hi">हर रोज़ आप क्या करेंगे</span></h2>
-    <p class="section-sub"><span class="en">Caring, consistent, compassionate — that's the elda. partner.</span><span class="hi">स्नेही, नियमित, सहानुभूति से भरा — यही है elda. पार्टनर।</span></p>
+<!-- ROLE -->
+<section class="sec cr">
+  <div style="text-align:center;margin-bottom:44px">
+    <div class="seyebrow" id="r-eyebrow">The Role</div>
+    <h2 class="stit" id="r-title">What you'll do every day</h2>
+    <p class="ssub" id="r-sub">Caring, consistent, compassionate — that's the elda. partner.</p>
   </div>
-  <div class="what-grid">
-    <ul class="what-list">
-      <li class="what-item"><div class="what-dot"></div><div class="what-text"><strong><span class="en">Personal Hygiene Support</span><span class="hi">स्वच्छता में सहायता</span></strong><span class="en">Help seniors with bathing, grooming, and maintaining daily hygiene with warmth and dignity.</span><span class="hi">नहाने, संवारने में स्नेह से सहायता।</span></div></li>
-      <li class="what-item"><div class="what-dot"></div><div class="what-text"><strong><span class="en">Companionship &amp; Conversation</span><span class="hi">साथ समय बिताना</span></strong><span class="en">Spend quality time — talk, listen, play games. Loneliness is the enemy.</span><span class="hi">बात करना, सुनना, खेलना। अकेलापन सबसे बड़ा दुश्मन है।</span></div></li>
-      <li class="what-item"><div class="what-dot"></div><div class="what-text"><strong><span class="en">Daily Walks &amp; Light Exercise</span><span class="hi">सैर और हल्की कसरत</span></strong><span class="en">Accompany seniors on morning or evening walks, keeping them active and safe.</span><span class="hi">सुबह-शाम सैर में साथ जाना और स्वस्थ रखना।</span></div></li>
-      <li class="what-item"><div class="what-dot"></div><div class="what-text"><strong><span class="en">Massage &amp; Physical Comfort</span><span class="hi">मालिश और शारीरिक आराम</span></strong><span class="en">Gentle massage to ease aches and bring relief and relaxation.</span><span class="hi">दर्द पर आराम देने के लिए हल्की मालिश।</span></div></li>
-      <li class="what-item"><div class="what-dot"></div><div class="what-text"><strong><span class="en">Daily Needs Assistance</span><span class="hi">रोज़मर्रा की ज़रूरतों में सहायता</span></strong><span class="en">Help with meals, medicines, mobility and general daily routines.</span><span class="hi">खाना, दवाइयाँ, चलने-फिरने में सहायता।</span></div></li>
+  <div class="wgrid">
+    <ul class="wlist">
+      <li class="wi"><div class="wd"></div><div class="wt"><strong id="r1t">Personal Hygiene Support</strong><span id="r1d">Help seniors with bathing, grooming, and maintaining daily hygiene with warmth and dignity.</span></div></li>
+      <li class="wi"><div class="wd"></div><div class="wt"><strong id="r2t">Companionship &amp; Conversation</strong><span id="r2d">Spend quality time — talk, listen, play games. Loneliness is the enemy.</span></div></li>
+      <li class="wi"><div class="wd"></div><div class="wt"><strong id="r3t">Daily Walks &amp; Light Exercise</strong><span id="r3d">Accompany seniors on morning or evening walks, keeping them active and safe.</span></div></li>
+      <li class="wi"><div class="wd"></div><div class="wt"><strong id="r4t">Massage &amp; Physical Comfort</strong><span id="r4d">Gentle massage to ease aches, improve circulation, and bring relief.</span></div></li>
+      <li class="wi"><div class="wd"></div><div class="wt"><strong id="r5t">Daily Needs Assistance</strong><span id="r5d">Help with meals, medicines, mobility, and general daily routines.</span></div></li>
     </ul>
-    <div class="training-card">
-      <div class="training-badge"><span class="en">Training Program</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">ट्रेनिंग प्रोग्राम</span></div>
-      <div class="training-title"><span class="en">7 Days to become a certified elda. Care Partner</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif;font-size:18px">7 दिनों में बनें elda. के सर्टिफाइड Care Partner</span></div>
-      <div class="training-desc"><span class="en">No prior experience required. We train every partner from scratch — hands-on, practical, and fully paid.</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">पुराना अनुभव ज़रूरी नहीं। हम सबको शुरू से ट्रेन करते हैं — हाथों-हाथ अभ्यास।</span></div>
-      <div class="training-steps">
-        <div class="training-step"><div class="step-num">1</div><div class="step-text"><span class="en">Senior care fundamentals &amp; safety</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">बुज़ुर्ग देखभाल की बुनियादें और सुरक्षा</span></div></div>
-        <div class="training-step"><div class="step-num">2</div><div class="step-text"><span class="en">Personal hygiene &amp; grooming</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">स्वच्छता और अंग संवार</span></div></div>
-        <div class="training-step"><div class="step-num">3</div><div class="step-text"><span class="en">Companionship &amp; emotional support</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">साथ बिताना और भावनात्मक सहायता</span></div></div>
-        <div class="training-step"><div class="step-num">4</div><div class="step-text"><span class="en">Emergency response basics</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">आपातकालीन प्रतिक्रिया</span></div></div>
-        <div class="training-step"><div class="step-num">5</div><div class="step-text"><span class="en">elda. systems &amp; reporting</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">elda. सिस्टम और रिपोर्टिंग</span></div></div>
-        <div class="training-step"><div class="step-num">6-7</div><div class="step-text"><span class="en">Live supervised practice</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">लाइव निगरानी अभ्यास</span></div></div>
+    <div class="tcard">
+      <div class="tbadge" id="tr-badge">Training Program</div>
+      <div class="ttit" id="tr-title">7 Days to become a certified elda. Care Partner</div>
+      <div class="tdesc" id="tr-desc">No prior experience required. We train every partner from scratch — hands-on, practical, and fully paid. By Day 7 you're ready.</div>
+      <div class="tsteps">
+        <div class="ts"><div class="tsn">1</div><div class="tst" id="ts1">Senior care fundamentals &amp; safety</div></div>
+        <div class="ts"><div class="tsn">2</div><div class="tst" id="ts2">Personal hygiene &amp; grooming</div></div>
+        <div class="ts"><div class="tsn">3</div><div class="tst" id="ts3">Companionship &amp; emotional support</div></div>
+        <div class="ts"><div class="tsn">4</div><div class="tst" id="ts4">Emergency response basics</div></div>
+        <div class="ts"><div class="tsn">5</div><div class="tst" id="ts5">elda. systems &amp; reporting</div></div>
+        <div class="ts"><div class="tsn">6-7</div><div class="tst" id="ts6">Live supervised practice</div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">elda.</div>
-  <div class="footer-text"><span class="en">a concierge for modern aging</span><span class="hi" style="font-family:'Tiro Devanagari Hindi',serif">आधुनिक बुज़ुर्ग जीवन का कंसीयर्ह</span></div>
-  <div class="footer-contact">+91 92113 45444 &middot; hello@getelda.com</div>
+  <div class="flogo">elda.</div>
+  <div class="fslogan" id="f-slogan">a concierge for modern aging</div>
+  <div class="fcon">+91 92113 45444 &middot; hello@getelda.com</div>
 </footer>
 
 <script>
-  // ── PASTE YOUR APPS SCRIPT URL HERE ──────────────────────────────────
-  // Get it from: Apps Script → Deploy → Manage deployments → copy URL
-  var APPS_SCRIPT_URL = 'https://script.google.com/a/macros/getelda.com/s/AKfycbzVrANwaHiSddhzB42G2067Vc9FhZIDMHhpkiud6tilvoyb0X2eJZFQbsohdGre9tFLlg/exec';
-  // ─────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// STEP 1: Create a Google Form with these 6 fields (Short answer for all):
+//   1. Name  2. Age  3. Phone  4. Location  5. Experience  6. Salary
+//
+// STEP 2: Click "Send" → click the link icon → copy the form URL
+//   It looks like: https://docs.google.com/forms/d/e/XXXXXXXX/viewform
+//
+// STEP 3: For each field, click the 3-dot menu → "Get pre-filled link"
+//   Fill dummy values, click "Get link", copy the URL — extract the entry.XXXXXXX
+//   numbers from it. Paste them below.
+//
+// WHY THIS WORKS: Google Forms accepts cross-origin POST from any browser,
+//   no CORS, no auth, no Apps Script needed.
+// ─────────────────────────────────────────────────────────────────────────────
 
-  var selectedExperience = '';
-  var currentLang = 'en';
+  var FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLScRWXdporXAKi9WQDP2INc-9HsvZFLjXL9ZjliB5H_7lju40Q/viewform?usp=header';
+  // e.g. 'https://docs.google.com/forms/d/e/1FAIpQLSxxxxxxxx/formResponse'
 
-  function setLang(lang) {
-    currentLang = lang;
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-hi').classList.toggle('active', lang === 'hi');
-    document.querySelectorAll('.en').forEach(function(el) {
-      el.style.display = lang === 'en' ? '' : 'none';
-    });
-    document.querySelectorAll('.hi').forEach(function(el) {
-      el.style.display = lang === 'hi' ? '' : 'none';
-    });
-  }
+  var FIELDS = {
+    name:       'entry.1239372723',   // replace with real entry IDs
+    age:        'entry.1300050841',
+    phone:      'entry.388066263',
+    location:   'entry.1335751389',
+    experience: 'entry.1889047254',
+    salary:     'entry.1941328919'
+  };
 
-  function selectExp(value, el) {
-    selectedExperience = value;
-    document.getElementById('opt-yes').classList.remove('selected');
-    document.getElementById('opt-no').classList.remove('selected');
-    el.classList.add('selected');
-  }
+// ─────────────────────────────────────────────────────────────────────────────
 
-  function showError(msg) {
-    var el = document.getElementById('error-msg');
-    el.textContent = msg;
-    el.style.display = 'block';
-  }
+  var exp = '';
+  var curLang = 'en';
 
-  function hideError() {
-    document.getElementById('error-msg').style.display = 'none';
-  }
-
-  function submitForm(e) {
-    e.preventDefault();
-    hideError();
-
-    if (!selectedExperience) {
-      showError(currentLang === 'hi'
-        ? 'कृपया बताएं कि क्या आपको बुज़ुर्ग देखभाल का अनुभव है।'
-        : 'Please select whether you have senior care experience.');
-      return;
+  var T = {
+    en: {
+      'nav-sub':'partner portal','nav-cta':'Apply Now',
+      'eyebrow':'Now Hiring in Gurgaon',
+      'htitle':'Care for a senior.<br/><em>Change a life.</em>',
+      'hdesc':'Join elda. as a Senior Care Partner — a meaningful role where you become extended family for the seniors in our care. We provide everything you need to thrive.',
+      'p-month':'month','p-inc':'+ Performance Incentives','p-stay':'🏠 Free Stay in Gurgaon','p-train':'7-Day Training Included',
+      'f-title':'Apply to Join elda.','f-sub':'Takes 2 minutes. We\'ll call you within 24 hours.',
+      'l-name':'Full Name','l-age':'Age','l-phone':'Phone Number','l-loc':'Current Location',
+      'l-exp':'Senior Care Experience?','exp-yes':'✓ Yes, I have','exp-no':'No, but willing to learn',
+      'l-sal':'Monthly Salary Expectation (₹)',
+      'btn-txt':'Submit Application →','fnote':'Your information is safe with us. No spam, ever.',
+      's-title':'Application Received!','s-desc':'Thank you. Our team will call you within 24 hours.<br/>Welcome to the elda. family.',
+      'b-eyebrow':'Why elda.','b-title':'A job with dignity,<br/>purpose, and stability.','b-sub':'We take care of our partners the same way we take care of seniors.',
+      'b1t':'₹20,000+ Salary','b1d':'Competitive monthly salary starting at ₹20,000 with performance incentives for excellent work.',
+      'b2t':'Free Stay in Gurgaon','b2d':'Comfortable accommodation in Gurgaon provided — no rent, no worry. Focus on your work and savings.',
+      'b3t':'Monthly Incentives','b3d':'Partners who go above and beyond earn meaningful bonuses every single month.',
+      'b4t':'7-Day Paid Training','b4d':'No experience? No problem. We train every partner before they start — fully paid, fully prepared.',
+      'b5t':'Meaningful Work','b5d':'You become the most important person in a senior\'s daily life — trusted, valued, and loved.',
+      'b6t':'Backed by elda.','b6d':'A dedicated coordinator and full team support, always there when you need help.',
+      'r-eyebrow':'The Role','r-title':'What you\'ll do every day','r-sub':'Caring, consistent, compassionate — that\'s the elda. partner.',
+      'r1t':'Personal Hygiene Support','r1d':'Help seniors with bathing, grooming, and maintaining daily hygiene with warmth and dignity.',
+      'r2t':'Companionship & Conversation','r2d':'Spend quality time — talk, listen, play games. Loneliness is the enemy.',
+      'r3t':'Daily Walks & Light Exercise','r3d':'Accompany seniors on morning or evening walks, keeping them active and safe.',
+      'r4t':'Massage & Physical Comfort','r4d':'Gentle massage to ease aches, improve circulation, and bring relief.',
+      'r5t':'Daily Needs Assistance','r5d':'Help with meals, medicines, mobility, and general daily routines.',
+      'tr-badge':'Training Program','tr-title':'7 Days to become a certified elda. Care Partner',
+      'tr-desc':'No prior experience required. We train every partner from scratch — hands-on, practical, fully paid. By Day 7 you\'re ready.',
+      'ts1':'Senior care fundamentals & safety','ts2':'Personal hygiene & grooming',
+      'ts3':'Companionship & emotional support','ts4':'Emergency response basics',
+      'ts5':'elda. systems & reporting','ts6':'Live supervised practice',
+      'f-slogan':'a concierge for modern aging',
+      'err-exp':'Please select whether you have senior care experience.',
+      'err-fail':'Something went wrong. Please try again or call +91 92113 45444.',
+      'submitting':'Submitting…'
+    },
+    hi: {
+      'nav-sub':'पार्टनर पोर्टल','nav-cta':'अभी आवेदन करें',
+      'eyebrow':'गुरुगाम में अभी भर्ती',
+      'htitle':'बुज़ुर्गों की देखभाल करें।<br/><em>एक ज़िंदगी बदलें।</em>',
+      'hdesc':'elda. में Senior Care Partner बनें — एक सार्थक काम जहाँ आप बुज़ुर्गों के परिवार का हिस्सा बनते हैं। हम हर ज़रूरत में आपका साथ देते हैं।',
+      'p-month':'महीना','p-inc':'+ योग्यता बोनस','p-stay':'🏠 गुरुगाम में मुफ्त रहाइश','p-train':'7 दिन की फ्री ट्रेनिंग',
+      'f-title':'elda. से जुड़ने के लिए आवेदन करें','f-sub':'सिर्फ 2 मिनट लगते हैं। हम 24 घंटे में कॉल करेंगे।',
+      'l-name':'पूरा नाम','l-age':'उम्र','l-phone':'फोन नंबर','l-loc':'वर्तमान शहर',
+      'l-exp':'बुज़ुर्ग देखभाल का अनुभव है?','exp-yes':'✓ हाँ, है','exp-no':'नहीं, पर सीखना चाहता/चाहती हूँ',
+      'l-sal':'मासिक वेतन अपेक्षा (₹)',
+      'btn-txt':'आवेदन जमा करें →','fnote':'आपकी जानकारी सुरक्षित है। कोई स्पैम नहीं।',
+      's-title':'आवेदन मिल गया!','s-desc':'धन्यवाद। हमारी टीम 24 घंटे में कॉल करेगी।<br/>elda. परिवार में आपका स्वागत है।',
+      'b-eyebrow':'elda. क्यों?','b-title':'सम्मान, उद्देश्य और<br/>स्थिरता वाला काम।','b-sub':'हम अपने पार्टनर का उतना ही ख्याल रखते हैं जितना बुज़ुर्गों का।',
+      'b1t':'₹20,000+ मासिक वेतन','b1d':'₹20,000 से शुरू होने वाला प्रतिस्पर्धी वेतन और अच्छे काम पर बोनस।',
+      'b2t':'गुरुगाम में मुफ्त रहाइश','b2d':'गुरुगाम में आरामदायक रहाइश मुफ्त में। किराया नहीं, चिंता नहीं।',
+      'b3t':'मासिक इंसेंटिव','b3d':'बेहतरीन सेवा देने वाले पार्टनर हर महीने आकर्षक बोनस कमाते हैं।',
+      'b4t':'7 दिन की फ्री ट्रेनिंग','b4d':'अनुभव नहीं? कोई बात नहीं। शुरू करने से पहले हम हर पार्टनर को ट्रेन करते हैं।',
+      'b5t':'सार्थक काम','b5d':'आप बुज़ुर्ग की ज़िंदगी में सबसे ज़रूरी इंसान बनते हैं — भरोसेमंद, प्यारे।',
+      'b6t':'elda. का पूरा सहारा','b6d':'समर्पित कोर्डिनेटर और पूरी टीम हमेशा आपके साथ।',
+      'r-eyebrow':'आपका काम','r-title':'हर रोज़ आप क्या करेंगे','r-sub':'स्नेही, नियमित, सहानुभूति से भरा — यही है elda. पार्टनर।',
+      'r1t':'स्वच्छता में सहायता','r1d':'नहाने, संवारने में गर्मजोशी से मदद।',
+      'r2t':'साथ समय बिताना','r2d':'बात करना, सुनना, खेलना। अकेलापन सबसे बड़ा दुश्मन है।',
+      'r3t':'सैर और हल्की कसरत','r3d':'सुबह-शाम सैर में साथ जाना और स्वस्थ रखना।',
+      'r4t':'मालिश और शारीरिक आराम','r4d':'दर्द पर आराम के लिए हल्की मालिश।',
+      'r5t':'रोज़मर्रा में सहायता','r5d':'खाना, दवाइयाँ, चलने-फिरने में मदद।',
+      'tr-badge':'ट्रेनिंग प्रोग्राम','tr-title':'7 दिनों में बनें elda. के सर्टिफाइड Care Partner',
+      'tr-desc':'पुराना अनुभव ज़रूरी नहीं। हम सबको शुरू से ट्रेन करते हैं — हाथों-हाथ, व्यावहारिक अभ्यास।',
+      'ts1':'बुज़ुर्ग देखभाल की बुनियादें और सुरक्षा','ts2':'स्वच्छता और अंग संवार',
+      'ts3':'साथ बिताना और भावनात्मक सहायता','ts4':'आपातकालीन प्रतिक्रिया',
+      'ts5':'elda. सिस्टम और रिपोर्टिंग','ts6':'लाइव निगरानी अभ्यास',
+      'f-slogan':'आधुनिक बुज़ुर्ग जीवन का कंसीयर्ह',
+      'err-exp':'कृपया बताएं कि क्या आपको बुज़ुर्ग देखभाल का अनुभव है।',
+      'err-fail':'कुछ गलत हो गया। कृपया दोबारा कोशिश करें या +91 92113 45444 पर कॉल करें।',
+      'submitting':'जमा हो रहा है…'
     }
+  };
 
-    var btn = document.getElementById('submit-btn');
+  function lang(l) {
+    curLang = l;
+    document.getElementById('lb-en').classList.toggle('on', l==='en');
+    document.getElementById('lb-hi').classList.toggle('on', l==='hi');
+    document.body.classList.toggle('hi', l==='hi');
+    var t = T[l];
+    Object.keys(t).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = t[id];
+    });
+  }
+
+  function pick(val, el) {
+    exp = val;
+    document.getElementById('opt-y').classList.remove('sel');
+    document.getElementById('opt-n').classList.remove('sel');
+    el.classList.add('sel');
+  }
+
+  function showErr(msg) {
+    var e = document.getElementById('err-box');
+    e.textContent = msg;
+    e.style.display = 'block';
+  }
+
+  function submit(e) {
+    e.preventDefault();
+    document.getElementById('err-box').style.display = 'none';
+
+    if (!exp) { showErr(T[curLang]['err-exp']); return; }
+
+    var btn = document.getElementById('sbtn');
     btn.disabled = true;
-    btn.querySelector('.en').textContent = 'Submitting\u2026';
-    btn.querySelector('.hi').textContent = '\u091C\u092E\u093E \u0939\u094B \u0930\u0939\u093E \u0939\u0948\u2026';
+    document.getElementById('btn-txt').textContent = T[curLang]['submitting'];
 
-    var payload = {
-      name:       document.getElementById('f-name').value.trim(),
-      age:        document.getElementById('f-age').value.trim(),
-      phone:      document.getElementById('f-phone').value.trim(),
-      location:   document.getElementById('f-location').value.trim(),
-      experience: selectedExperience,
-      salary:     document.getElementById('f-salary').value.trim()
-    };
+    var name     = document.getElementById('f-name').value.trim();
+    var age      = document.getElementById('f-age').value.trim();
+    var phone    = document.getElementById('f-phone').value.trim();
+    var location = document.getElementById('f-loc').value.trim();
+    var salary   = document.getElementById('f-sal').value.trim();
 
-    // no-cors: we can't read the response but the POST reaches Apps Script fine.
-    // We optimistically show success after a short delay — data WILL land in the sheet.
-    fetch(APPS_SCRIPT_URL, {
+    // Build form-encoded body — Google Forms requires this format
+    var body = [
+      encodeURIComponent(FIELDS.name)       + '=' + encodeURIComponent(name),
+      encodeURIComponent(FIELDS.age)        + '=' + encodeURIComponent(age),
+      encodeURIComponent(FIELDS.phone)      + '=' + encodeURIComponent(phone),
+      encodeURIComponent(FIELDS.location)   + '=' + encodeURIComponent(location),
+      encodeURIComponent(FIELDS.experience) + '=' + encodeURIComponent(exp),
+      encodeURIComponent(FIELDS.salary)     + '=' + encodeURIComponent(salary)
+    ].join('&');
+
+    // no-cors: Google Forms blocks reading the response but ACCEPTS the POST fine
+    fetch(FORM_ACTION, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
     })
     .then(function() {
-      // With no-cors the response is opaque (we can't read it),
-      // but if fetch resolved without throwing, the request got through.
-      document.getElementById('partner-form').style.display = 'none';
-      document.getElementById('success-state').style.display = 'block';
-      setLang(currentLang);
+      // fetch resolved = POST was sent successfully
+      document.getElementById('the-form').style.display = 'none';
+      document.getElementById('succ').style.display = 'block';
     })
     .catch(function() {
       btn.disabled = false;
-      btn.querySelector('.en').textContent = 'Submit Application \u2192';
-      btn.querySelector('.hi').textContent = '\u0906\u0935\u0947\u0926\u0928 \u091C\u092E\u093E \u0915\u0930\u0947\u0902 \u2192';
-      showError(currentLang === 'hi'
-        ? 'कुछ गलत हो गया। कृपया दोबारा कोशिश करें या +91 92113 45444 पर कॉल करें।'
-        : 'Something went wrong. Please try again or call us at +91 92113 45444.');
+      document.getElementById('btn-txt').innerHTML = T[curLang]['btn-txt'];
+      showErr(T[curLang]['err-fail']);
     });
   }
 
-  // Init language
-  setLang('en');
+  lang('en');
 </script>
 </body>
 </html>
